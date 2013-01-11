@@ -17,13 +17,17 @@ public class CalculatorTest {
 	@Test
 	public void multiply正常系() {
 		int actual = testee.multiply(3, 2);
-		assertThat(actual , is(6));
+		assertThat(actual, is(6));
 	}
 
 	@Test
 	public void divide正常系() {
-		int actual = testee.divide(15,5);
-		assertThat(actual , is(3));
+		int actual = testee.divide(15, 5);
+		assertThat(actual, is(3));
 	}
 
+	@Test(expected = IllegalArgumentException.class)
+	public void devideゼロ割り例外を発生させること() {
+		testee.divide(1, 0);
+	}
 }
